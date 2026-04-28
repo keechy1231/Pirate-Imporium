@@ -8,11 +8,23 @@
 <body>
 
 <div class="container">
-    <h2>Order Complete</h2>
-    <p>Total Paid: {{ total }} gold</p>
 
-    <p>Thank you for shopping at the Pirate Emporium 🏴‍☠️</p>
+    <h2>Checkout Complete</h2>
+
+    <div class="card">
+        <p><strong>Total spent:</strong> {{ total }} gold</p>
+        <p><strong>Remaining balance:</strong> {{ balance }} gold</p>
+    </div>
+
+    {% if flag %}
+    <div class="card">
+        <h3>🏆 Reward Unlocked</h3>
+        <p>{{ flag }}</p>
+    </div>
+    {% endif %}
+
     <a href="/shop">Back to shop</a>
+
 </div>
 
 </body>

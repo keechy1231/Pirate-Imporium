@@ -1,28 +1,28 @@
 let prices = {
-    sword: 100,
-    chest: 250,
-    parrot: 500
+    sword: 1000,
+    chest: 2500,
+    parrot: 5000000
 };
 
-let accountUrl = "/my-account";
-
-// Cart
 let total = 0;
+let items = [];
 
-// Setup UI
 document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("price-sword").innerText = prices.sword + " gold";
     document.getElementById("price-chest").innerText = prices.chest + " gold";
     document.getElementById("price-parrot").innerText = prices.parrot + " gold";
 
-    // My Account link controlled in JS
-    document.getElementById("account-link").href = accountUrl;
+    document.getElementById("account-link").href = "/my-account";
 });
 
-// Add to cart
 function addToCart(item) {
     total += prices[item];
+    items.push(item);
+
     document.getElementById("cart-total").innerText = total;
+
     document.getElementById("total-input").value = total;
+    document.getElementById("items-input").value = items.join(",");
 }
+

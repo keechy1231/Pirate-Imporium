@@ -177,3 +177,12 @@ button:hover {
     object-fit: cover;
     border-radius: 8px;
 }
+
+.balance {
+    color: #fbbf24;
+    font-weight: bold;
+    margin-right: 15px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}

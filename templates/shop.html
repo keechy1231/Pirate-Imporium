@@ -11,11 +11,11 @@
 <div class="navbar">
     <h2>🏴‍☠️ Pirate Emporium</h2>
     <div>
+        <span class="balance">💰 {{ balance }} gold</span>
         <a id="account-link">My Account</a>
-        <a href="{{ url_for('logout') }}">Logout</a>
+        <a href="/logout">Logout</a>
     </div>
 </div>
-
 <div class="container">
     <h3>Welcome, {{ username }}</h3>
 
@@ -49,15 +49,11 @@
 
         <form method="POST" action="/checkout">
             <input type="hidden" name="total" id="total-input">
+            <input type="hidden" name="items" id="items-input">
             <button type="submit">Checkout</button>
         </form>
     </div>
 
 </div>
-
-<script>
-    const username = "{{ username }}";
-</script>
-
 </body>
 </html>
