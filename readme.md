@@ -22,3 +22,5 @@ The application intentionally demonstrates how relying on client-side logic can 
 ## Flag 
 
 To get the flag - simply purchase the Parrot Companion. 
+
+Login with user:user123
