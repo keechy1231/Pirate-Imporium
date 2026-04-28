@@ -1,11 +1,11 @@
-# 🏴‍☠️ Pirate Emporium Lab
+# Pirate Emporium Lab
 
 A deliberately insecure pirate themed e-commerce web application built using Flask.  
 Designed for security training, demonstrating the risks of client-side trust and manipulation.
 
 ---
 
-## ⚓ Overview
+## Overview
 
 Pirate Emporium is a simple web shop where users can:
 
@@ -18,3 +18,7 @@ Pirate Emporium is a simple web shop where users can:
 The application intentionally demonstrates how relying on client-side logic can lead to insecure behaviour.
 
 ---
+
+## Flag 
+
+To get the flag - simply purchase the Parrot Companion. 
