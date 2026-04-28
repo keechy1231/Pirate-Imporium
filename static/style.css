@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #1f2937;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background: rgba(15, 23, 42, 0.9);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.navbar a {
+    color: #e2e8f0;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: #38bdf8;
+}
+
+/* CENTER CONTAINER */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+/* LOGIN CARD */
+.login-container {
+    background: white;
+    padding: 2.5em;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 10px;
+}
+
+.login-container p.subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* ERROR */
+.error {
+    color: #dc2626;
+    font-size: 14px;
+}
+
+/* SHOP */
+.container {
+    padding: 2em;
+}
+
+.products {
+    display: flex;
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 1em;
+    border-radius: 12px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* CART */
+.cart {
+    margin-top: 30px;
+    background: white;
+    padding: 1.5em;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    transition: 0.2s;
+}
+
+/* ACCOUNT PAGE */
+.account-container {
+    display: flex;
+    gap: 30px;
+    padding: 2em;
+}
+
+.profile-card {
+    background: white;
+    padding: 2em;
+    border-radius: 12px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.avatar {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.muted {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.card {
+    background: white;
+    padding: 1.5em;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card h4 {
+    margin-bottom: 10px;
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>🏴‍☠️ Pirate Emporium</h2>
+    <div>
+        <a href="/shop">Shop</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="account-container">
+
+    <div class="profile-card">
+        <img src="https://via.placeholder.com/120" class="avatar">
+        <h3>{{ username }}</h3>
+        <p class="muted">Loyal Crew Member</p>
+    </div>
+
+    <div class="account-details">
+
+        <div class="card">
+            <h4>Account Details</h4>
+            <p><strong>Username:</strong> {{ username }}</p>
+            <p><strong>Email:</strong> {{ username }}@pirate-emporium.com</p>
+            <p><strong>Member Since:</strong> 2024</p>
+        </div>
+
+        <div class="card">
+            <h4>Order History</h4>
+            <ul>
+                <li>Cutlass Sword - 100 gold</li>
+                <li>Treasure Chest - 250 gold</li>
+                <li>Parrot Companion - 500 gold</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>Loyalty Status</h4>
+            <p>Gold Tier 🏆</p>
+            <p>Next reward at 1000 gold spent</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

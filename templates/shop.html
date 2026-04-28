@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pirate Emporium</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>🏴‍☠️ Pirate Emporium</h2>
+    <div>
+        <a id="account-link">My Account</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <h3>Welcome, {{ username }}</h3>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="/static/images/cutlass.jpg">
+            <h4>Cutlass Sword</h4>
+            <p id="price-sword"></p>
+            <button onclick="addToCart('sword')">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="/static/images/chest.jpg">
+            <h4>Treasure Chest</h4>
+            <p id="price-chest"></p>
+            <button onclick="addToCart('chest')">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="/static/images/parrot.jpg">
+            <h4>Parrot Companion</h4>
+            <p id="price-parrot"></p>
+            <button onclick="addToCart('parrot')">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <div class="cart">
+        <h3>Cart Total: <span id="cart-total">0</span> gold</h3>
+
+        <form method="POST" action="/checkout">
+            <input type="hidden" name="total" id="total-input">
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    const username = "{{ username }}";
+</script>
+
+</body>
+</html>
