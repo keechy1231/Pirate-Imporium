@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+import json
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
-USERS = {
-    "user": "user123",
-    "admin": "admin123"
-}
+USERS = {"user": "user123"}
+
 
 @app.route("/", methods=["GET", "POST"])
 def login():
@@ -18,46 +17,58 @@ def login():
             session["username"] = username
             session["balance"] = 1000
             return redirect(url_for("shop"))
-        else:
-            return render_template("login.html", error="Invalid credentials")
 
     return render_template("login.html")
 
 
 @app.route("/shop")
 def shop():
-    username = session.get("username")
-    if not username:
+    if not session.get("username"):
         return redirect(url_for("login"))
 
-    balance = session.get("balance", 0)
-
-    return render_template("shop.html", username=username, balance=balance)
+    return render_template(
+        "shop.html",
+        username=session["username"],
+        balance=session["balance"]
+    )
 
 
 @app.route("/checkout", methods=["POST"])
 def checkout():
-    username = session.get("username")
-    if not username:
+    if not session.get("username"):
         return redirect(url_for("login"))
 
-    total = int(request.form.get("total", 0))
-    items = request.form.get("items", "")
+    items = request.form.get("items", "").split(",")
 
-    balance = session.get("balance", 0)
+    prices = {
+        "sword": 100,
+        "chest": 250,
+        "parrot": 5000
+    }
+
+    total = 0
+
+    for item in items:
+        if item in prices:
+            total += prices[item]
+        else:
+            return "Invalid item", 400
+
+    balance = session["balance"]
 
     if total <= balance:
-        balance -= total
-        session["balance"] = balance
+        session["balance"] -= total
 
         flag = ""
-        if "parrot" in items:
+
+        # ✅ NEW LAB CONDITION
+        if "parrot" in items and total < 1000:
             flag = "FLAG{pirate_parrot_loyalty}"
 
         return render_template(
             "checkout.html",
             total=total,
-            balance=balance,
+            balance=session["balance"],
             flag=flag
         )
 
@@ -69,19 +80,18 @@ def checkout():
     )
 
 
-@app.route("/my-account")
-def account():
-    username = session.get("username")
-    if not username:
-        return redirect(url_for("login"))
-
-    return render_template("account.html", username=username)
-
-
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("login"))
+
+
+@app.route("/my-account")
+def account():
+    if not session.get("username"):
+        return redirect(url_for("login"))
+
+    return render_template("account.html", username=session["username"])
 
 
 if __name__ == "__main__":
