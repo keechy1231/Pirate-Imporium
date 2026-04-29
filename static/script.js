@@ -1,28 +1,50 @@
-let prices = {
-    sword: 1000,
-    chest: 2500,
-    parrot: 5000000
+let uiPrices = {
+    sword: 100,
+    chest: 250,
+    parrot: 5000
 };
 
-let total = 0;
 let items = [];
+let total = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
+// initialise wallet
+if (!localStorage.getItem("balance")) {
+    localStorage.setItem("balance", "1000");
+}
 
-    document.getElementById("price-sword").innerText = prices.sword + " gold";
-    document.getElementById("price-chest").innerText = prices.chest + " gold";
-    document.getElementById("price-parrot").innerText = prices.parrot + " gold";
+function getBalance() {
+    return parseInt(localStorage.getItem("balance"));
+}
 
-    document.getElementById("account-link").href = "/my-account";
-});
+function setBalance(val) {
+    localStorage.setItem("balance", val.toString());
+}
 
 function addToCart(item) {
-    total += prices[item];
     items.push(item);
 
-    document.getElementById("cart-total").innerText = total;
+    total = items.reduce((sum, i) => sum + uiPrices[i], 0);
 
-    document.getElementById("total-input").value = total;
+    document.getElementById("cart-total").innerText = total;
     document.getElementById("items-input").value = items.join(",");
 }
 
+function checkout() {
+    let balance = getBalance();
+
+    if (total > balance) {
+        alert("Not enough gold!");
+        return;
+    }
+
+    balance -= total;
+    setBalance(balance);
+
+    // WIN CONDITION
+    if (items.includes("parrot") && total < 1000) {
+        window.location.href = "/win";
+        return;
+    }
+
+    alert("Purchase complete!");
+}
