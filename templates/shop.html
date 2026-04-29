@@ -12,10 +12,11 @@
     <h2>🏴‍☠️ Pirate Emporium</h2>
     <div>
         <span class="balance">💰 {{ balance }} gold</span>
-        <a id="account-link">My Account</a>
+        <a id="account-link" href="/my-account">My Account</a>
         <a href="/logout">Logout</a>
     </div>
 </div>
+
 <div class="container">
     <h3>Welcome, {{ username }}</h3>
 
@@ -46,13 +47,14 @@
 
     <div class="cart">
         <h3>Cart Total: <span id="cart-total">0</span> gold</h3>
-        <<form method="POST" action="/checkout">
-            <input type="hidden" name="items" id="items-input">
-            <button type="submit">Checkout</button>
-        </form>
-        
+
+        <!-- hidden field kept ONLY for JS state tracking -->
+        <input type="hidden" id="items-input">
+
+        <button onclick="checkout()">Checkout</button>
     </div>
 
 </div>
+
 </body>
 </html>
